@@ -1,0 +1,15 @@
+name: gradio
+channels:
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - gradio
+    - transformers
+    - torch
+    - requests
+    - accelerator
+    - python-dotenv
