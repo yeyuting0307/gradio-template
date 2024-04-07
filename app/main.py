@@ -1,5 +1,4 @@
 import gradio as gr
-import uuid
 import os
 import sys
 from os.path import abspath, join, dirname
@@ -11,7 +10,7 @@ load_dotenv()
 from app.tabs.question_answer import tab_qa
 from app.tabs.image_generation import tab_img_gen
 from app.tabs.image_editing import tab_img_edit
-
+from app.tabs.chat_pdf import tab_pdf
 def main():
     layout = gr.Blocks()
 
@@ -22,6 +21,8 @@ def main():
             tab_img_gen()
         with gr.Tab("圖片編輯"):
             tab_img_edit()
+        with gr.Tab("PDF問答"):
+            tab_pdf()
             
     layout.launch(debug = True)
 
