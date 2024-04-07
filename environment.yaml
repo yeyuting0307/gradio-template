@@ -8,7 +8,12 @@ dependencies:
   - pip
   - pip:
     - gradio
+    - gradio_pdf
+    - PyMuPDF
+    - langchain
     - transformers
+    - sentence-transformers
+    - faiss-cpu
     - torch
     - requests
     - accelerator
