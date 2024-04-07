@@ -2,20 +2,23 @@
 import os
 import uuid
 import requests
+import logging
 
 GEMINI_API_URL = os.environ.get("GEMINI_API_URL")
 IMAGEN_API_URL = os.environ.get("IMAGEN_API_URL")
 
-def gemini(prompt:str, user_id:str = uuid.uuid4().hex):
+def gemini(prompt:str, user_id:str = None):
     api_url = GEMINI_API_URL
     body = {
         "prompt": prompt,
-        "user_id": user_id
+        "user_id": user_id or uuid.uuid4().hex
     }
     res = requests.post(url=api_url, json=body)
     if res.status_code == requests.codes.ok:
         return res.json()
     else:
+        logging.error(f"request : {body}")
+        logging.error(f"response : {res.content}")
         return "gemini went wrong!"
 
 def imagen(prompt:str, count:int=1):
