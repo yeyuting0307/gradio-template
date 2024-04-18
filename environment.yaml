@@ -13,8 +13,12 @@ dependencies:
     - langchain
     - transformers
     - sentence-transformers
+    - datasets
+    - accelerate
     - faiss-cpu
     - torch
+    - torchaudio
     - requests
-    - accelerator
     - python-dotenv
+    - librosa
+    - soundfile
